@@ -11,10 +11,10 @@
     </nav>
 
     <div class="container">
-        <h2>Nuevo Cliente</h2>
+        <h2>Actualizar Cliente</h2>
         <br />
         <div class="row">
-            <form class="col s12" th:action="@{/autores/guardar}" th:object="${autor}" method="POST">
+            <form class="col s12" th:action="@{/clientes/actualizar/{id}(id=${cliente.idCliente})}" th:object="${cliente}" method="POST">
                 <div class="row">
                     <div class="input-field col s4">
                         <i class="material-icons prefix">account_circle</i>
@@ -23,20 +23,20 @@
                         <label for="nombre_prefix">Nombre completo</label>
                     </div>
                     <div class="input-field col s4">
-                        <i class="material-icons prefix">flag</i>
-                        <input id="nacionalidad_prefix" type="text" class="validate" name="nacionalidad" th:field="*{nacionalidad}"
+                        <i class="material-icons prefix">phone</i>
+                        <input id="telefono_prefix" type="number" class="validate" name="telefono" th:field="*{telefono}"
                             required>
-                        <label for="nacionalidad_prefix">País</label>
+                        <label for="telefono_prefix">Teléfono</label>
                     </div>
                     <div class="input-field col s4">
-                        <i class="material-icons prefix">date_range</i>
-                        <input id="fechaNacimiento_prefix" type="date" class="validate" name="fechaNacimiento" th:field="*{fechaNacimiento}"
+                        <i class="material-icons prefix">location_on</i>
+                        <input id="direccion_prefix" type="text" class="validate" name="direccion" th:field="*{direccion}"
                             required>
-                        <label for="fechaNacimiento_prefix">Fecha de nacimiento</label>
+                        <label for="direccion_prefix">Dirección de residencia</label>
                     </div>
                 </div>
                 <div class="row">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Crear
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Actualizar
                         <i class="material-icons right">send</i>
                     </button>
                 </div>

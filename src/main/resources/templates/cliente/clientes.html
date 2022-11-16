@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="base :: head">
+
+</head>
+
+<body>
+    <nav th:replace="base :: nav"></nav>
+
+    <div class="container">
+        <h2>Lista de Clientes</h2>
+        <a th:href="@{/clientes/nuevo}" class="waves-effect waver-light btn">Nuevo Cliente</a>
+        <br/>
+        <br/>
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Teléfono</th>
+                    <th>Dirección</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cliente: ${clientes}">
+                    <td th:text="${cliente.idCliente}"></td>
+                    <td th:text="${cliente.nombre}"></td>
+                    <td th:text="${cliente.telefono}"></td>
+                    <td th:text="${cliente.direccion}"></td>
+                    <td>
+                        <a th:href="@{/clientes/editar/{id}(id=${cliente.idCliente})}" class="waves-effect orange lighten-1 btn">Editar</a>
+                        <a th:href="@{/clientes/eliminar/{id}(id=${cliente.idCliente})}" class="waves-effect red lighten-1 btn">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

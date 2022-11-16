@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="base :: head">
+
+</head>
+
+<body>
+    <nav th:replace="base :: nav"></nav>
+
+    <div class="container">
+        <h2>Lista de Copias</h2>
+        <a th:href="@{/copias/nuevo}" class="waves-effect waver-light btn">Nueva Copia</a>
+        <br/>
+        <br/>
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Libro</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="copia: ${copias}">
+                    <td th:text="${copia.idCopia}"></td>
+                    <td th:text="${copia.libro}"></td>
+                    <td th:text="${copia.estado}"></td>
+                    <td>
+                        <a th:href="@{/copias/editar/{id}(id=${copia.idCopia})}" class="waves-effect orange lighten-1 btn">Editar</a>
+                        <a th:href="@{/copias/eliminar/{id}(id=${copia.idCopia})}" class="waves-effect red lighten-1 btn">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

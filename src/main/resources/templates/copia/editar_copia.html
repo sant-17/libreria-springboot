@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="base :: head">
+
+</head>
+
+<body>
+    
+    <nav th:replace="base :: nav">
+
+    </nav>
+
+    <div class="container">
+        <h2>Editar Copia</h2>
+        <br />
+        <div class="row">
+            <form class="col s12" th:action="@{/copias/actualizar/{id}(id=${copia.idCopia})}" th:object="${copia}" method="POST">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">book</i>
+                        <select th:field="*{libro}" required>
+                            <th:block th:each="libro : ${libros}">
+                                <option th:text="${libro.titulo}" th:value="${libro.idLibro}"></option>
+                            </th:block>
+                        </select>
+                        <label>Libro</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">description</i>
+                        <select th:field="*{estado}" required>
+                            <option value="Prestado">Prestado</option>
+                            <option value="Retraso">Retraso</option>
+                            <option value="Biblioteca">Biblioteca</option>
+                            <option value="Reparacion">Reparacion</option>
+                        </select>
+                        <label>Libro</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Crear
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+
+</html>

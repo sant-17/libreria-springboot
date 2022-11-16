@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="base :: head">
+
+</head>
+
+<body>
+    <nav th:replace="base :: nav"></nav>
+
+    <div class="container">
+        <h2>Lista de Libros</h2>
+        <a th:href="@{/libros/nuevo}" class="waves-effect waver-light btn">Nuevo Libro</a>
+        <br/>
+        <br/>
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Editorial</th>
+                    <th>Género</th>
+                    <th>Año</th>
+                    <th>Autor</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="libro: ${libros}">
+                    <td th:text="${libro.idLibro}"></td>
+                    <td th:text="${libro.titulo}"></td>
+                    <td th:text="${libro.editorial}"></td>
+                    <td th:text="${libro.genero}"></td>
+                    <td th:text="${libro.anyo}"></td>
+                    <td th:text="${libro.autor}"></td>
+                    <td>
+                        <a th:href="@{/libros/editar/{id}(id=${libro.idLibro})}" class="waves-effect orange lighten-1 btn">Editar</a>
+                        <a th:href="@{/libros/eliminar/{id}(id=${libro.idLibro})}" class="waves-effect red lighten-1 btn">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

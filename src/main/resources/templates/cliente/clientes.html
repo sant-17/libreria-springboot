@@ -20,6 +20,8 @@
                     <th>Nombre</th>
                     <th>Teléfono</th>
                     <th>Dirección</th>
+                    <th>Libros prestados</th>
+                    <th>Prestamo de libros</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -29,6 +31,11 @@
                     <td th:text="${cliente.nombre}"></td>
                     <td th:text="${cliente.telefono}"></td>
                     <td th:text="${cliente.direccion}"></td>
+                    <td th:text="${cliente.getCopiaPrestada}"></td>
+                    <td>
+                        <a th:href="@{/clientes/prestar/{id}(id=${cliente.idCliente})}" class="waves-effect orange lighten-1 btn">Prestar</a>
+                        <!--<a href="">Remover prestamo</a>-->
+                    </td>
                     <td>
                         <a th:href="@{/clientes/editar/{id}(id=${cliente.idCliente})}" class="waves-effect orange lighten-1 btn">Editar</a>
                         <a th:href="@{/clientes/eliminar/{id}(id=${cliente.idCliente})}" class="waves-effect red lighten-1 btn">Eliminar</a>

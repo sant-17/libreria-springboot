@@ -1,5 +1,7 @@
 package com.libreria.libreriaspringboot.Controller;
 
+import com.libreria.libreriaspringboot.Model.Autor;
+import com.libreria.libreriaspringboot.Service.AutorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,8 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.libreria.libreriaspringboot.Model.Autor;
-import com.libreria.libreriaspringboot.Service.AutorService;
 
 @Controller
 @RequestMapping("/autores")
@@ -39,7 +39,7 @@ public class AutorController {
     }
 
     @GetMapping("/editar/{id}")
-    public String editarProveedor(@PathVariable Integer id, Model model){
+    public String editarAutor(@PathVariable Integer id, Model model){
         model.addAttribute("autor", service.obtenerAutorPorId(id));
         return "autor/editar_autor";
     }

@@ -28,7 +28,10 @@
         <div class="nav-wrapper grey darken-4">
             <a href="#" class="brand-logo right"></a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li><a href="#">Autores</a></li>
+                <li><a th:href="@{/autores/listar}">Autores</a></li>
+                <li><a th:href="@{/libros/listar}">Libros</a></li>
+                <li><a th:href="@{/copias/listar}">Copias</a></li>
+                <li><a th:href="@{/clientes/listar}">Clientes</a></li>
             </ul>
         </div>
     </nav>

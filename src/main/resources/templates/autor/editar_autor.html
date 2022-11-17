@@ -11,7 +11,7 @@
     </nav>
 
     <div class="container">
-        <h2>Nuevo Proveedor</h2>
+        <h2>Nuevo Autor</h2>
         <br />
         <div class="row">
             <form class="col s12" th:action="@{/autores/actualizar/{id}(id=${autor.idAutor})}" th:object="${autor}" method="POST">
@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Crear
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Actualizar
                         <i class="material-icons right">send</i>
                     </button>
                 </div>
